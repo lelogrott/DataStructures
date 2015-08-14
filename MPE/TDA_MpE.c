@@ -104,3 +104,24 @@ int consultaTopo(pMP p, int nPilha, void* consultado)
 
     return SUCESSO;
 }
+
+void destroi(ppMP pp) 
+{ 
+    int i,j;
+    for(i = (*pp)->N -1; i>=0; i--){
+        int inicioParticao = (*pp)->vet[i].descritor.inicioParticao;
+        for(j=(*pp)->L-1;j>=0;j--){
+            printf(">>removendo dado\n");
+            free( (*pp)->vet[inicioParticao + j].dados);      
+        }
+    }
+    for(i = (*pp)->N -1; i>=0; i--){
+        void *node = &((*pp)->vet[i].descritor); 
+        printf(">>removendo node\n");
+        free((void*)node);
+    }
+    free((*pp)->vet);
+    free(*pp);
+    *pp = NULL;
+}
+

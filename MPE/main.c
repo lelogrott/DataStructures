@@ -9,8 +9,8 @@ int main()
     int removido;
     int novoItem;
 
-    int n=3;
-    int l=4;
+    int n=4;
+    int l=3;
     int tamInfo = sizeof(int);
 
     cria(&p,n,l,tamInfo);
@@ -28,6 +28,8 @@ int main()
     printf(">>REMOVEU: %d", removido);
     
     consultaTopo(p, 2, &consultado);
-
+    
+    destroi(&p);
+    
     return 0;
 }
