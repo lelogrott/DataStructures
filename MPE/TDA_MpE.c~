@@ -92,12 +92,13 @@ int removeDaPilha(pMP p, int nPilha, void* removido)
 int consultaTopo(pMP p, int nPilha, void* consultado)
 {
     int topo = p->vet[nPilha-1].descritor.topo;
+    int inicioParticao = p->vet[nPilha-1].descritor.inicioParticao;
     if(topo == -1)
     {
         printf("\nA pilha %d esta vazia\n", nPilha);
         return FRACASSO;
     }
-    memcpy(consultado, p->vet[topo].dados, p->tamInfo);
+    memcpy(consultado, p->vet[inicioParticao + topo].dados, p->tamInfo);
 
     return SUCESSO;
 }

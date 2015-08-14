@@ -79,12 +79,14 @@ int insereNaPilha(pMP p, int nPilha, void* novo)
 
 int removeDaPilha(pMP p, int nPilha, void* removido)
 {
-    if(p->vet[nPilha-1].descritor.topo==-1)
+    int topo = p->vet[nPilha-1].descritor.topo;
+    int inicioParticao = p->vet[nPilha-1].descritor.inicioParticao;
+    if(topo == -1)
     {
-        printf(">>ERRO AO REMOVER\nA pilha %d está vazia\n", nPilha);
+        printf("\nA pilha %d esta vazia\n", nPilha);
         return FRACASSO;
     }
-    memcpy(p->vet[(p->vet[nPilha-1].descritor.topo)].dados, removido, p->tamInfo);
+    memcpy(removido, p->vet[inicioParticao + topo].dados, p->tamInfo);
     p->vet[nPilha-1].descritor.topo--;
     return SUCESSO;
 }

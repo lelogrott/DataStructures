@@ -5,7 +5,7 @@ int main()
 {
 
     pMP p;
-    NoMP *consultado;
+    int consultado;
     int novoItem;
 
     int n=3;
@@ -17,8 +17,10 @@ int main()
     novoItem = 5;
 
     insereNaPilha(p,2, &novoItem);
-    printf("\ninseriu\n");
-    consultaTopo(p, 2, consultado);
+
+    consultaTopo(p, 2, &consultado);
+    
+    printf(">>TOPO: %d\n", consultado);
 
 
     return 0;
