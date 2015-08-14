@@ -69,10 +69,10 @@ int insereNaPilha(pMP p, int nPilha, void* novo)
     int inicioParticao = p->vet[nPilha-1].descritor.inicioParticao;
     p->vet[nPilha-1].descritor.topo += 1;
     int topo = p->vet[nPilha-1].descritor.topo;
-    printf("acrescentou topo\n");
+    //printf("acrescentou topo\n");
     memcpy(p->vet[inicioParticao + topo].dados, novo, p->tamInfo);
-    int *dado = (int*)p->vet[inicioParticao + topo].dados;
-    printf("topo atual = %d\n", *dado);
+    //int *dado = (int*)p->vet[inicioParticao + topo].dados;
+    //printf("topo atual = %d\n", *dado);
 
     return SUCESSO;
 }
@@ -91,12 +91,14 @@ int removeDaPilha(pMP p, int nPilha, void* removido)
 
 int consultaTopo(pMP p, int nPilha, void* consultado)
 {
-    if(p->vet[nPilha-1].descritor.topo==-1)
+    int topo = p->vet[nPilha-1].descritor.topo;
+    int inicioParticao = p->vet[nPilha-1].descritor.inicioParticao;
+    if(topo == -1)
     {
         printf("\nA pilha %d esta vazia\n", nPilha);
         return FRACASSO;
     }
-    memcpy(p->vet[(p->vet[nPilha-1].descritor.topo)].dados, consultado, p->tamInfo);
+    memcpy(consultado, p->vet[inicioParticao + topo].dados, p->tamInfo);
 
     return SUCESSO;
 }
