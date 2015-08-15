@@ -17,17 +17,17 @@ int main()
 
     novoItem = 5;
 
-    insereNaPilha(p,2, &novoItem);
+    insereNaPilha(p,4, &novoItem);
 
-    consultaTopo(p, 2, &consultado);
+    consultaTopo(p, 4, &consultado);
     
     printf(">>TOPO: %d\n", consultado);
 
-    removeDaPilha(p, 2, &removido);
+    removeDaPilha(p, 4, &removido);
     
     printf(">>REMOVEU: %d", removido);
     
-    consultaTopo(p, 2, &consultado);
+    consultaTopo(p, 4, &consultado);
     
     destroi(&p);
     
