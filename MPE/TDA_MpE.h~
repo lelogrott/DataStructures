@@ -5,12 +5,6 @@
 #define SUCESSO 0
 #define FRACASSO 1
 
-#ifdef  __unix__
-   #define clrscr() system("clear")
-#else
-   #define clrscr() system("cls")
-#endif
-
 typedef struct MP *pMP, **ppMP;
 
 int cria(ppMP pp, int N, int L, int tamInfo);
