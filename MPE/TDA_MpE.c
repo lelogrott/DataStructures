@@ -53,8 +53,13 @@ int cria( ppMP pp, int N, int L, int tamInfo)
 
 int insereNaPilha(pMP p, int nPilha, void* novo)
 {
-
     if(p->vet==NULL)/*testa existencia da pilha*/
+    {
+        printf(">>Erro ao inserir, pilha inexistente\n");
+        return FRACASSO;
+    }
+    
+    if(p->N < nPilha)
     {
         printf(">>Erro ao inserir, pilha inexistente\n");
         return FRACASSO;
