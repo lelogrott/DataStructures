@@ -9,6 +9,11 @@
 #define NAO 0
 #define SIM 1
 
+#ifdef  __unix__
+   #define clrscr() system("clear")
+#else
+   #define clrscr() system("cls")
+#endif
 
 
 typedef struct PDSE *pPDSE, **ppPDSE;
@@ -34,4 +39,8 @@ int busca(pPDSE p, void *reg);
 /*************** DESEMPILHA E COPIA ITEM REMOVIDO P/ O CHAMADOR **************/
 int removeTopo(pPDSE p, void *reg);
 
-//int enderecosFisicos(pPDSE p);
+int mostraPilha(pPDSE p, void (*mostraDado)(void*));
+
+int inverte(pPDSE p);
+
+int geraPilha(pPDSE p, int nElementos);
