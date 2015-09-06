@@ -72,7 +72,7 @@ int insereABB(pABB pa, void *novoReg, unsigned short (* cmp)(void *p1, void *p2)
                     q->dir=novoNoABB;
                 else
                     pa->raiz = novoNoABB;   /* árvore com um único nó */
-            balancear(pa);
+            balancear(pa);printf(">chamou balancear\n");
             return SUCESSO;
         }
         else
@@ -197,9 +197,9 @@ int alturaNo( pNoABB no ) {
 /****calcula fator de balanceamento ******/
 int fator_balanceamento( pNoABB no ) {
 	int bf = 0;
-
-	if( no->esq  ) bf += fator_balanceamento( no->esq );
-	if( no->dir ) bf -= fator_balanceamento( no->dir );
+    
+	if(no->esq != NULL) bf += 1 + fator_balanceamento( no->esq );
+	if(no->dir != NULL) bf -= 1+ fator_balanceamento( no->dir );
 
 	return bf ;
 }
@@ -257,16 +257,16 @@ pNoABB rotacao_RR(pNoABB no) {
 
 /* Balancear nó dado*/
 pNoABB balancear_no(pNoABB no) {
-	pNoABB novaRaiz = NULL;
+	pNoABB novaRaiz = NULL; printf(">entrou balancear\n");
 
 	/* Balancear os filhos, se existirem */
-	if( no->esq )
+	if( no->esq !=NULL)
 		no->esq  = balancear_no( no->esq  );
-	if( no->dir ) 
+	if( no->dir !=NULL ) 
 		no->dir = balancear_no( no->dir );
 
 	int bf = fator_balanceamento(no);
-
+printf("@@@@@ %d\n", bf);
 	if( bf >= 2 ) {
 		/* esquerda pesada */	
 
