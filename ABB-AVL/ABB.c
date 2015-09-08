@@ -187,21 +187,27 @@ int numFolhas(pABB p)
 int alturaNo( pNoABB no ) {
 	int altura_esquerda = 0;
 	int altura_direita = 0;
-
-	if( no->esq ) altura_esquerda = alturaNo( no->esq );
-	if( no->dir ) altura_direita = alturaNo( no->dir );
+    if(no==NULL)
+        return;
+	if( no->esq !=NULL)
+	    altura_esquerda = alturaNo( no->esq );
+	if( no->dir !=NULL)
+	    altura_direita = alturaNo( no->dir );
 
 	return altura_direita > altura_esquerda ? ++altura_direita : ++altura_esquerda;
 }
 
 /****calcula fator de balanceamento ******/
 int fator_balanceamento( pNoABB no ) {
-	int bf = 0;
+	/*int bf = 0;
     
-	if(no->esq != NULL) bf += 1 + fator_balanceamento( no->esq );
-	if(no->dir != NULL) bf -= 1+ fator_balanceamento( no->dir );
+	if(no->esq != NULL) bf += 1+fator_balanceamento( no->esq );
+	if(no->dir != NULL) bf -= 1+fator_balanceamento( no->dir );
 
-	return bf ;
+	return bf ;*/
+	if (no == NULL)
+        return 0;
+    return alturaNo(no->esq) - alturaNo(no->dir);
 }
 
 /* Rotação LL */
