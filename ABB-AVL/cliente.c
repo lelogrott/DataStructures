@@ -18,7 +18,7 @@ main(void)
 	    }
 	    else
        		{ puts(">>> Fracasso na inserção");	
-		  return;	
+		  return 1;	
 		}
 	 }while(vet[i].idade>0);
 	puts("");	
@@ -83,8 +83,8 @@ void menu(pABB p)
 	 system("clear");
 	 printf("\n");
 	 puts("0:sair         1:inserir          2:remover             3:buscar  ");
-         puts("4:reiniciar    5:perc. em ordem   6:perc. em pos-ordem  7:perc. em pre-ordem");  
-	 puts("8:ABB vazia? ");
+         puts("4:reiniciar    5:perc. em ordem recursivo   6:perc. em pos-ordem  7:perc. em pre-ordem");  
+	 puts("8:ABB vazia?     9:perc. em ordem iterativo");
 	 printf("\n:>");	
          scanf("%u",&opc);
 
@@ -142,6 +142,10 @@ void menu(pABB p)
                 else
                 	puts(">>> ABB nao vazia");
             	break;
+		    case 9:
+                if (emOrdemIterativa(p,exibeChave)==FRACASSO)
+         	        puts(">>> ABB vazia");
+		break;
 	
           }
 	 printf("\n tecle para continuar...");

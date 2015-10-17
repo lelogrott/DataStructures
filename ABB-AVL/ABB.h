@@ -57,6 +57,8 @@ int numFolhas(pABB p);
 
 int emOrdem(pABB pa, void (* processa)(void *p));
 
+int emOrdemIterativa(pABB pa, void (* processa)(void *p));
+
 int posOrdem(pABB pa, void (* processa)(void *p));
 
 int preOrdem(pABB pa,  void (* processa)(void *p));

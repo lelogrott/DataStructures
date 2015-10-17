@@ -173,6 +173,16 @@ int emOrdem(pABB pa,  void (* processa)(void *p))
 
 }
 
+int emOrdemIterativa(pABB pa,  void (* processa)(void *p))
+{   if(pa->raiz == NULL)
+        return FRACASSO;
+    else
+     {  percorreEmOrdemIterativa(pa->raiz, processa);
+        return SUCESSO;
+     }
+
+}
+
 
 
 int numFolhas(pABB p)
@@ -188,7 +198,7 @@ int alturaNo( pNoABB no ) {
 	int altura_esquerda = 0;
 	int altura_direita = 0;
     if(no==NULL)
-        return;
+        return 1;
 	if( no->esq !=NULL)
 	    altura_esquerda = alturaNo( no->esq );
 	if( no->dir !=NULL)
