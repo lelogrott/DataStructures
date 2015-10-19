@@ -5,7 +5,7 @@
 main(void)
 {  
     pABB p=NULL;
-    Agenda aux, retorno,vet[]={{300,"Pedro","end", "fone"},{200,"Paulo","end", "fone"},{100,"Judas","end", "fone"},{400,"Manuel","end", "fone"},{250,"Lucas","end", "fone"},{270,"Andre","end", "fone"}, {390,"Thiago","end", "fone"}};
+    Agenda aux, retorno,vet[]={{300,"Pedro","end", "fone"},{200,"Paulo","end", "fone"},{100,"Judas","end", "fone"},{400,"Manuel","end", "fone"},{250,"Lucas","end", "fone"},{270,"Andre","end", "fone"}, {390,"Thiago","end", "fone"},{0,"Thiago","end", "fone"}};
    unsigned int opc=1,i=0;
    if (criaABB(&p, sizeof(Agenda)) == SUCESSO)
    {  
@@ -13,14 +13,14 @@ main(void)
 	 i=0;
 	 do{ // carregando a ABB
             if(insereABB(p,&vet[i],comparaCamposChaves1)==SUCESSO)
-	    {	printf("%i) inserido: %s, idade: %i anos, matricula: %i \n",i+1,vet[i].nome,vet[i].idade,vet[i].matricula); 
+	    {	printf("%i) inserido: %d, nome: %s \n",i+1,vet[i].cod, vet[i].nome); 
 	    	i++;
 	    }
 	    else
        		{ puts(">>> Fracasso na inserção");	
 		  return 1;	
 		}
-	 }while(vet[i].idade>0);
+	 }while(vet[i].cod>0);
 	puts("");	
 	puts("tecle para continuar...");	 
 	getchar();
@@ -107,7 +107,7 @@ void menu(pABB p)
 
           	scanf("%i", &aux.cod);
           	if (removeABB(p,&aux.cod,comparaCamposChaves2,&retorno)==SUCESSO)
-          		printf(">>> Removeu: %i",retorno.campoChave);
+          		printf(">>> Removeu: %i",retorno.cod);
           	else
             		puts(">>> Fracasso na remocao");
             	break;

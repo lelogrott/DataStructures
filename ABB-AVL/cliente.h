@@ -1,16 +1,11 @@
 #include "ABB.h"
 
-#define campoChave matricula
+#define campoChave cod
 
 typedef int tipoChave;
 
 #define mascaraChave " %i; "
 
-typedef  struct { 
-    tipoChave campoChave;
-    int idade;
-    char nome[30];	
-} info;
 
 typedef  struct 
 {

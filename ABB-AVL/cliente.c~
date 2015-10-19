@@ -5,22 +5,22 @@
 main(void)
 {  
     pABB p=NULL;
-    info aux, retorno,vet[]={{300,30,"Pedro"},{200,32,"Paulo"},{100,35,"Judas"},{400,31,"Manuel"},{250,33,"Lucas"},{270,32,"Andre"},        {390,34,"Thiago"},{-1,-1,'\0'}};
+    Agenda aux, retorno,vet[]={{300,"Pedro","end", "fone"},{200,"Paulo","end", "fone"},{100,"Judas","end", "fone"},{400,"Manuel","end", "fone"},{250,"Lucas","end", "fone"},{270,"Andre","end", "fone"}, {390,"Thiago","end", "fone"},{0,"Thiago","end", "fone"}};
    unsigned int opc=1,i=0;
-   if (criaABB(&p, sizeof(info)) == SUCESSO)
+   if (criaABB(&p, sizeof(Agenda)) == SUCESSO)
    {  
 	 system("clear");
 	 i=0;
 	 do{ // carregando a ABB
             if(insereABB(p,&vet[i],comparaCamposChaves1)==SUCESSO)
-	    {	printf("%i) inserido: %s, idade: %i anos, matricula: %i \n",i+1,vet[i].nome,vet[i].idade,vet[i].matricula); 
+	    {	printf("%i) inserido: %d, nome: %s \n",i+1,vet[i].cod, vet[i].nome); 
 	    	i++;
 	    }
 	    else
        		{ puts(">>> Fracasso na inserção");	
 		  return 1;	
 		}
-	 }while(vet[i].idade>0);
+	 }while(vet[i].cod>0);
 	puts("");	
 	puts("tecle para continuar...");	 
 	getchar();
