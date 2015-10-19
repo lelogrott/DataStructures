@@ -94,7 +94,7 @@ void menu(pABB p)
           	destroiABB(&p);
 		return;
 	    case 1:
-          	printf("entre com matricula: ");
+          	printf("entre com codigo: ");
 		flush(stdin);
           	scanf("%i", &(aux.cod));
                 if (insereABB(p,&aux,comparaCamposChaves1)==SUCESSO)
@@ -103,7 +103,7 @@ void menu(pABB p)
             		puts(">>> Fracasso na inserção");
           	break;
             case 2:
-            	printf("entre com matricula: ");
+            	printf("entre com o codigo: ");
 
           	scanf("%i", &aux.cod);
           	if (removeABB(p,&aux.cod,comparaCamposChaves2,&retorno)==SUCESSO)
@@ -112,11 +112,11 @@ void menu(pABB p)
             		puts(">>> Fracasso na remocao");
             	break;
             case 3:  
-		printf("entre com matricula: ");
+		printf("entre com o codigo: ");
 
           	scanf("%i", &aux.cod);
           	if (buscaABB(p,&retorno,&aux.cod,comparaCamposChaves2)==SUCESSO)
-			printf(">>> Buscou: %i",retorno.cod);
+			printf(">>> Buscou:\ncod %i\nnome %s\n",retorno.cod, retorno.nome);
 		else
 			puts(">>> Fracasso na busca");
 		break;

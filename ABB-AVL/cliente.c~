@@ -107,7 +107,7 @@ void menu(pABB p)
 
           	scanf("%i", &aux.cod);
           	if (removeABB(p,&aux.cod,comparaCamposChaves2,&retorno)==SUCESSO)
-          		printf(">>> Removeu: %i",retorno.campoChave);
+          		printf(">>> Removeu: %i",retorno.cod);
           	else
             		puts(">>> Fracasso na remocao");
             	break;
@@ -116,7 +116,7 @@ void menu(pABB p)
 
           	scanf("%i", &aux.cod);
           	if (buscaABB(p,&retorno,&aux.cod,comparaCamposChaves2)==SUCESSO)
-			printf(">>> Buscou: %i",retorno.cod);
+			printf(">>> Buscou:\ncod %i\nnome %s\n",retorno.cod, retorno.nome);
 		else
 			puts(">>> Fracasso na busca");
 		break;
